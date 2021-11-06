@@ -2,9 +2,9 @@ import { Pool, Client } from "pg";
 require("dotenv").config();
 
 const credentials = {
-    user: "",
-    host: "",
-    database: "",
+    user: process.env.USER_NAME,
+    host: process.env.HOST_NAME,
+    database: process.env.DATABASE_NAME,
     password: process.env.SECRET_PASSWORD,
     port: 5432,
 };

@@ -33,18 +33,18 @@ const checkJwt = jwt({
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
-        jwksUri: '',
+        jwksUri: process.env.JWKS_URL,
     }),
 
-    audience: "",
-    issuer: ``,
+    audience: process.env.AUDIENCE,
+    issuer: process.env.ISSUER,
     algorithms: ["RS256"],
 });
 
 const fetchUserData = async function (req: any, res: any, next: any) {
     const accessToken = req.headers.authorization.split(" ")[1];
     try {
-        const userInfoResponse = await axios.get("", {
+        const userInfoResponse = await axios.get(process.env.USERINFORESPONSE, {
             headers: {
                 Authorization: req.headers.authorization,
             },
