@@ -20,7 +20,8 @@ app.use(cors());
 app.use(morgan("combined"));
 app.use(httpContext.middleware);
 
-app.get("/pub", async (req, res) => {
+// change this to /api/v1/pub
+app.get("pub", async (req, res) => {
     res.send(await getPlantsPub());
 });
 app.post("/pub", async (req, res) => {
